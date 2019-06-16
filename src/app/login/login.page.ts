@@ -12,15 +12,13 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   validations_form: FormGroup;
   errorMessage: string = '';
 
   title = 'Login';
 
   constructor(
-
-  	private navCtrl: NavController,
+  	public navCtrl: NavController,
     private authService: AuthenticationService,
     private formBuilder: FormBuilder
 
@@ -38,8 +36,8 @@ export class LoginPage implements OnInit {
       ])),
     });
   }
- 
- 
+
+
   validation_messages = {
     'email': [
       { type: 'required', message: 'Email is required.' },
@@ -50,8 +48,8 @@ export class LoginPage implements OnInit {
       { type: 'minlength', message: 'Password must be at least 5 characters long.' }
     ]
   };
- 
- 
+
+
   loginUser(value){
     this.authService.loginUser(value)
     .then(res => {
@@ -62,7 +60,7 @@ export class LoginPage implements OnInit {
       this.errorMessage = err.message;
     })
   }
- 
+
   goToRegisterPage(){
     this.navCtrl.navigateForward('/register');
   }
