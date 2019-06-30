@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage } from './page-objects/app.po';
 
 describe('new App', () => {
   let page: AppPage;
@@ -7,8 +7,8 @@ describe('new App', () => {
     page = new AppPage();
   });
 
-  it('should be blank', () => {
+  it('should show the login page', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toContain('The world is your oyster.');
+    expect(page.getParagraphText()).toContain('No account yet? Create an account.');
   });
 });
